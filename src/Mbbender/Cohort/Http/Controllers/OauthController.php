@@ -1,4 +1,4 @@
-<?php namespace Mbbender\Cohort\Http\Controllers\Account;
+<?php namespace Mbbender\Cohort\Http\Controllers;
 
 
 use Doctrine\ORM\EntityManagerInterface;
@@ -7,7 +7,6 @@ use Laravel\Socialite\Contracts\Factory as Socialite;
 use Laravel\Socialite\SocialiteManager;
 use Mbbender\Cohort\Domain\EmailAddress;
 use Mbbender\Cohort\Domain\User;
-use Mbbender\Cohort\Http\Controllers\Controller;
 use Mbbender\Cohort\Jobs\LoginUser;
 use Mbbender\Cohort\Jobs\RegisterUser;
 

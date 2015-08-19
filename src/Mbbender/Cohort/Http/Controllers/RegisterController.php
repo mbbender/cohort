@@ -1,13 +1,12 @@
 <?php
 
-namespace Mbbender\Cohort\Http\Controllers\Account;
+namespace Mbbender\Cohort\Http\Controllers;
 
 
 use SociableGroup\Exceptions\ValidationException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use ReCaptcha\ReCaptcha;
-use Mbbender\Cohort\Http\Controllers\Controller;
 use Mbbender\Cohort\Jobs\LoginUser;
 use Mbbender\Cohort\Jobs\RegisterUser;
 

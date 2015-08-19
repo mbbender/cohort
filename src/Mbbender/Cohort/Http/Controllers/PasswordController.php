@@ -1,7 +1,6 @@
-<?php namespace Mbbender\Cohort\Http\Controllers\Account;
+<?php namespace Mbbender\Cohort\Http\Controllers;
 
 
-use Mbbender\Cohort\Http\Controllers\Controller;
 use Mbbender\Cohort\Jobs\LoginUser;
 use Mbbender\Cohort\Services\UserManager;
 use Illuminate\Contracts\Auth\Guard;

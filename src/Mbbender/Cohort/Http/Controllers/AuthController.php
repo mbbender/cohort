@@ -1,11 +1,10 @@
 <?php
 
-namespace Mbbender\Cohort\Http\Controllers\Account;
+namespace Mbbender\Cohort\Http\Controllers;
 
 
 use Illuminate\Http\Request;
 use Illuminate\Contracts\Auth\Guard;
-use Mbbender\Cohort\Http\Controllers\Controller;
 use Mbbender\Cohort\Jobs\LoginUser;
 use Mbbender\Cohort\Jobs\LogoutUser;
 

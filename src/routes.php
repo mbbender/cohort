@@ -8,7 +8,7 @@ Route::post('account/signup',  RegisterController::class.'@processSignup');
 
 // User Authentication
 Route::get('account/login', ['as'=>'account.login', 'uses'=>AuthController::class.'@login']);
-Route::post('account/login', AuthController::class.'@processLogin');
+Route::post('account/login', Account\AuthController::class.'@processLogin');
 
 Route::get('account/logout', ['as'=>'account.logout', 'uses'=>AuthController::class.'@logout']);
 
