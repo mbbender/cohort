@@ -22,7 +22,7 @@ class CohortServiceProvider extends ServiceProvider{
         }
 
         // Load Views
-        $this->loadViewsFrom(__DIR__.'/path/to/views', 'cohort');
+        $this->loadViewsFrom(__DIR__.'/../../views', 'cohort');
 
     }
 }
