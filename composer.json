@@ -1,5 +1,5 @@
 {
-    "name": "mbbender/laravel-userorgs",
+    "name": "mbbender/cohort",
     "description": "Users, orgs, and the common relations and views for setting this up along with Doctrine and Eloquent implementations.",
     "license": "MIT",
     "type": "package",

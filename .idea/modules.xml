@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/laravel-userorgs.iml" filepath="$PROJECT_DIR$/.idea/laravel-userorgs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/cohort.iml" filepath="$PROJECT_DIR$/.idea/cohort.iml" />
     </modules>
   </component>
 </project>
