@@ -1,7 +1,10 @@
 <?php
 
+use Behat\Behat\Tester\Exception\PendingException;
 use Behat\Behat\Context\Context;
 use Behat\Behat\Context\SnippetAcceptingContext;
+use Behat\Gherkin\Node\PyStringNode;
+use Behat\Gherkin\Node\TableNode;
 use Symfony\Component\Process\Process;
 
 /**
@@ -9,20 +12,25 @@ use Symfony\Component\Process\Process;
  */
 class IsolatedProcessContext implements Context, SnippetAcceptingContext
 {
+    private $lastOutput;
+
     /**
-     * @var Process
+     * @beforeSuite
      */
-    private $process;
+    public static function checkDependencies()
+    {
+        chdir(sys_get_temp_dir());
+        if (!@`which expect`) {
+            throw new \Exception('Smoke tests require the `expect` command line application');
+        }
+    }
 
     /**
      * @Given I have started describing the :class class
      */
     public function iHaveStartedDescribingTheClass($class)
     {
-        $command = sprintf('%s %s %s', $this->buildPhpSpecCmd(), 'describe', escapeshellarg($class));
-
-        $process = new Process($command);
-
+        $process = new Process($this->buildPhpSpecCmd() . ' describe '. escapeshellarg($class));
         $process->run();
 
         expect($process->getExitCode())->toBe(0);
@@ -33,17 +41,21 @@ class IsolatedProcessContext implements Context, SnippetAcceptingContext
      */
     public function iRunPhpspecAndAnswerWhenAskedIfIWantToGenerateTheCode($answer)
     {
-        $command = sprintf('%s %s', $this->buildPhpSpecCmd(), 'run');
-        $env = array(
-            'SHELL_INTERACTIVE' => true,
-            'HOME' => $_SERVER['HOME']
+        $process = new Process(
+            "exec expect -c '\n" .
+            "set timeout 10\n" .
+            "spawn {$this->buildPhpSpecCmd()} run\n" .
+            "expect \"Y/n\"\n" .
+            "send \"$answer\n\"\n" .
+            "expect \"Y/n\"\n" .
+            "interact\n" .
+            "'"
         );
 
-        $this->process = $process = new Process($command);
-
-        $process->setEnv($env);
-        $process->setInput($answer);
         $process->run();
+        $this->lastOutput = $process->getOutput();
+
+        expect((bool)$process->getErrorOutput())->toBe(false);
     }
 
     /**
@@ -59,14 +71,6 @@ class IsolatedProcessContext implements Context, SnippetAcceptingContext
      */
     public function theTestsShouldBeRerun()
     {
-        expect(substr_count($this->process->getOutput(), 'specs'))->toBe(2);
-    }
-
-    /**
-     * @Then I should see an error about the missing autoloader
-     */
-    public function iShouldSeeAnErrorAboutTheMissingAutoloader()
-    {
-        expect($this->process->getErrorOutput())->toMatch('/autoload/');
+        expect(substr_count($this->lastOutput, 'for you?'))->toBe(2);
     }
 }

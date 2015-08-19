@@ -9,7 +9,6 @@
             "email": "michaelbenbender@gmail.com"
         }
     ],
-    "minimum-stability": "dev",
     "require": {},
     "require-dev":{
         "laravel/framework": "5.1.*",
@@ -28,6 +27,11 @@
         "behat/mink": "~1.6",
         "behat/mink-extension": "~2.0",
         "laracasts/behat-laravel-extension": "~1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Mbbender\\": "src/Mbbender/"
+        }
     },
     "repositories": [
         {

@@ -16,8 +16,13 @@ class CohortServiceProvider extends ServiceProvider{
 
     public function boot()
     {
+        // Require Routes
         if (! $this->app->routesAreCached()) {
             require __DIR__.'/../../routes.php';
         }
+
+        // Load Views
+        $this->loadViewsFrom(__DIR__.'/path/to/views', 'cohort');
+
     }
 }

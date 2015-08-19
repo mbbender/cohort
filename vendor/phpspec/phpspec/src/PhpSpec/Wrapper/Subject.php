@@ -190,14 +190,6 @@ class Subject implements ArrayAccess, WrapperInterface
             return $this->callExpectation($method, $arguments);
         }
 
-        if (preg_match('/^beConstructedThrough(?P<method>[0-9A-Z]+)/i', $method, $matches)) {
-            return $this->beConstructedThrough(lcfirst($matches['method']), $arguments);
-        }
-
-        if (preg_match('/^beConstructed(?P<method>[0-9A-Z]+)/i', $method, $matches)) {
-            return $this->beConstructedThrough(lcfirst($matches['method']), $arguments);
-        }
-
         return $this->caller->call($method, $arguments);
     }
 

@@ -30,7 +30,7 @@ class CollaboratorsMaintainer implements MaintainerInterface
      */
     private static $docex = '#@param *([^ ]*) *\$([^ ]*)#';
     /**
-     * @var Unwrapper
+     * @var \PhpSpec\Wrapper\Unwrapper
      */
     private $unwrapper;
     /**
