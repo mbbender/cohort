@@ -19,7 +19,7 @@ class AuthController extends Controller{
      */
     public function login()
     {
-        return view('site.account.login');
+        return view('cohort::login');
     }
 
     /**
