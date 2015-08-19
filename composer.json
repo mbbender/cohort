@@ -1,0 +1,46 @@
+{
+    "name": "mbbender/laravel-userorgs",
+    "description": "Users, orgs, and the common relations and views for setting this up along with Doctrine and Eloquent implementations.",
+    "license": "MIT",
+    "type": "package",
+    "authors": [
+        {
+            "name": "Michael Bender",
+            "email": "michaelbenbender@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "require-dev":{
+        "laravel/framework": "5.1.*",
+        "laravel/socialite": "~2.0",
+        "laravel-doctrine/orm": "dev-master",
+        "laravel-doctrine/extensions": "@dev",
+        "doctrine/migrations":"@dev",
+        "mbbender/doctrine-ordered-uuid-generator":"dev-master",
+        "jms/serializer": "@dev",
+        "pda/pheanstalk": "^3.0",
+        "google/recaptcha": "^1.1",
+        "phpunit/phpunit": "~4.0",
+        "phpspec/phpspec": "~2.1",
+        "laracasts/generators": "~1.1",
+        "behat/behat": "3.0.*@stable",
+        "behat/mink": "~1.6",
+        "behat/mink-extension": "~2.0",
+        "laracasts/behat-laravel-extension": "~1.0"
+    },
+    "repositories": [
+        {
+            "type": "git",
+            "url": "https://github.com/mbbender/doctrine-ordered-uuid-generator.git"
+        },
+        {
+            "type": "git",
+            "url": "https://github.com/laravel-doctrine/orm.git"
+        },
+        {
+            "type": "git",
+            "url": "https://github.com/laravel-doctrine/extensions.git"
+        }
+    ]
+}
