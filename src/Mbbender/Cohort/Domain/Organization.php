@@ -4,6 +4,7 @@ namespace Mbbender\Cohort\Domain;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+use Mbbender\Cohort\Traits\BaseEntityTrait;
 
 /**
  * Class Organization
@@ -12,7 +13,9 @@ use Doctrine\Common\Collections\ArrayCollection;
  * @ORM\Table(name="organizations")
  */
 
-class Organization extends BaseEntity{
+class Organization{
+
+    use BaseEntityTrait;
 
     /**
      * @ORM\Column(type="string")

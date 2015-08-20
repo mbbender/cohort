@@ -3,6 +3,7 @@
 namespace Mbbender\Cohort\Domain;
 
 use Doctrine\ORM\Mapping as ORM;
+use Mbbender\Cohort\Traits\BaseEntityTrait;
 
 
 /**
@@ -12,7 +13,9 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity
  * @ORM\Table(name="addresses")
  */
-class Address extends BaseEntity{
+class Address{
+
+    use BaseEntityTrait;
 
     /** @ORM\Column(type="string")  */
     private $address1;

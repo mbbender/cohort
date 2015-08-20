@@ -3,6 +3,7 @@
 namespace Mbbender\Cohort\Domain;
 
 use Doctrine\ORM\Mapping as ORM;
+use Mbbender\Cohort\Traits\BaseEntityTrait;
 
 
 /**
@@ -15,7 +16,9 @@ use Doctrine\ORM\Mapping as ORM;
  *  uniqueConstraints={@ORM\UniqueConstraint(name="email_idx",columns={"email"})}
  * )
  */
-class EmailAddress extends BaseEntity{
+class EmailAddress{
+
+    use BaseEntityTrait;
 
     /** @ORM\Column(type="string")  */
     private $email;

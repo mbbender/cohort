@@ -3,6 +3,7 @@
 namespace Mbbender\Cohort\Domain;
 
 use Doctrine\ORM\Mapping as ORM;
+use Mbbender\Cohort\Traits\BaseEntityTrait;
 
 
 /**
@@ -12,8 +13,10 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity
  * @ORM\Table(name="phone_numbers")
  */
-class Phonenumber extends BaseEntity{
+class Phonenumber{
 
+    use BaseEntityTrait;
+    
     /** @ORM\Column(type="string")  */
     private $areacode;
     /** @ORM\Column(type="string")  */

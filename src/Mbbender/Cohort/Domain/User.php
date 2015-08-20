@@ -7,16 +7,17 @@ use Doctrine\ORM\Mapping as ORM;
 use LaravelDoctrine\ORM\Auth\Authenticatable;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
+use Mbbender\Cohort\Traits\BaseEntityTrait;
 
 /**
  * Class User
  * @ORM\Entity
  * @ORM\Table=("users")
  */
-class User extends BaseEntity implements AuthenticatableContract, CanResetPasswordContract
+class User implements AuthenticatableContract, CanResetPasswordContract
 {
 
-    use Authenticatable;
+    use Authenticatable, BaseEntityTrait;
 
     /** @ORM\Column(type="string") */
     private $firstName;
