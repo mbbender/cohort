@@ -1,8 +1,10 @@
 <?php namespace Mbbender\Cohort;
 
 use Illuminate\Bus\Dispatcher;
+use Illuminate\Contracts\Auth\Registrar;
 use Illuminate\Support\ServiceProvider;
 use Mbbender\Cohort\Handlers\Jobs\RegisterUserHandler;
+use  Mbbender\Cohort\Services\GenericRegistrar;
 
 class CohortServiceProvider extends ServiceProvider{
 
@@ -14,6 +16,7 @@ class CohortServiceProvider extends ServiceProvider{
     public function register()
     {
         // TODO: Implement register() method.
+        $this->app->bind(Registrar::class, GenericRegistrar::class);
     }
 
     public function boot(Dispatcher $dispatcher)
@@ -33,4 +36,5 @@ class CohortServiceProvider extends ServiceProvider{
         $this->loadViewsFrom(__DIR__.'/../../views', 'cohort');
 
     }
+
 }
