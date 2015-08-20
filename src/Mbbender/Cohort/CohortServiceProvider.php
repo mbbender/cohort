@@ -26,7 +26,7 @@ class CohortServiceProvider extends ServiceProvider{
     {
         // Add command handlers to bus
         $commands = [
-           RegisterUser::class => RegisterUserHandler::class
+           RegisterUser::class => RegisterUserHandler::class.'@handle'
         ];
         $dispatcher->maps($commands);
 
