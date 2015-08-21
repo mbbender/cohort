@@ -1,7 +1,7 @@
 <?php namespace Mbbender\Cohort\Traits;
 
 use Doctrine\ORM\Mapping as ORM;
-use Gedmo\Mapping\Annotations as Gedmo;
+use Gedmo\Mapping\Annotation as Gedmo;
 use DateTime;
 
 
